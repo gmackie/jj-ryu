@@ -404,7 +404,7 @@ fn format_stack_comment_for_platform(
     for (i, item) in data.stack.iter().rev().enumerate() {
         let is_current = i == reversed_idx;
         match platform {
-            Platform::GitHub => {
+            Platform::GitHub | Platform::Gitea => {
                 // GitHub: "* #N" - GitHub auto-expands to show title with rich previews
                 if is_current {
                     let _ = writeln!(body, "* **#{} {STACK_COMMENT_THIS_PR}**", item.pr_number);
